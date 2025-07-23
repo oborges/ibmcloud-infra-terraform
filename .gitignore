@@ -7,7 +7,7 @@ terraform.tfstate
 terraform.tfstate.*
 *.tfstate
 *.tfstate.*
-
+terraform.lock.hcl
 # ── Plans & refresh data ───────────────────────────────────────────────────────
 *.tfplan               # binary plan outputs
 *.tfrefresh.json       # refresh-only JSON data (CLI v1.6+)
