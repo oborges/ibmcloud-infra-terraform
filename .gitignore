@@ -1,0 +1,38 @@
+# ── Terraform working dirs ─────────────────────────────────────────────────────
+.terraform/            # provider plugins, modules, init cache
+.terraform.lock.hcl    # dependency lock (ignore if you prefer to commit it)
+
+# ── State files ────────────────────────────────────────────────────────────────
+terraform.tfstate
+terraform.tfstate.*
+*.tfstate
+*.tfstate.*
+
+# ── Plans & refresh data ───────────────────────────────────────────────────────
+*.tfplan               # binary plan outputs
+*.tfrefresh.json       # refresh-only JSON data (CLI v1.6+)
+
+# ── Variables & override files (often contain secrets) ─────────────────────────
+# Remove the leading “!” if you DO want to keep example templates in‑repo.
+*.tfvars
+*.tfvars.json
+!example.tfvars
+!sample*.tfvars
+
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ── Crash logs & debug output ──────────────────────────────────────────────────
+crash.log
+crash.*.log
+terraform*.log
+
+# ── Local tooling / editor junk ────────────────────────────────────────────────
+# (Feel free to trim if not needed.)
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
