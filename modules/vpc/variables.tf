@@ -3,13 +3,13 @@
 ###############
 
 variable "region" {
-  description = "IBM Cloud region (default: us-south)."
+  description = "IBM Cloud region (provider uses it; default us-south)."
   type        = string
   default     = "us-south"
 }
 
 variable "zones" {
-  description = "List of availability zones inside the region."
+  description = "Availability zones for multi‑AZ VPC."
   type        = list(string)
   default     = ["us-south-1", "us-south-2", "us-south-3"]
 
@@ -25,30 +25,30 @@ variable "vpc_name" {
 }
 
 variable "resource_group" {
-  description = "Name of the resource group."
+  description = "IBM Cloud resource‑group name."
   type        = string
   default     = "Default"
 }
 
 variable "vpc_cidr" {
-  description = "Base CIDR block for the VPC (must be /16 or /17)."
+  description = "Base CIDR (e.g. 10.10.0.0/16). Must be /16 or /17."
   type        = string
   default     = "10.10.0.0/16"
 
   validation {
     condition     = cidrsubnet(var.vpc_cidr, 8, 0) != ""
-    error_message = "vpc_cidr must be a valid IPv4 CIDR (e.g. 10.10.0.0/16)."
+    error_message = "vpc_cidr must be a valid IPv4 CIDR."
   }
 }
 
 variable "tags" {
-  description = "Extra tags to attach to all resources."
+  description = "Extra resource tags."
   type        = list(string)
   default     = []
 }
 
 variable "environment" {
-  description = "Logical environment name (dev, stage, prod)."
+  description = "Environment label (dev/stage/prod)."
   type        = string
   default     = "dev"
 }
