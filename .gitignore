@@ -36,3 +36,4 @@ terraform*.log
 .vscode/
 *.swp
 
+.terraform/
