@@ -47,14 +47,38 @@ variable "subnet_ids" {
   type        = map(string)
 }
 
-variable "cos_crn" {
-  description = "CRN of a *standard* Cloud Object Storage instance used by ROKS"
-  type        = string
-}
-
 variable "tags" {
   description = "Tags to apply to the cluster."
   type        = list(string)
   default     = []
 }
 
+
+##COS for backup
+########################################################
+# Optional automatic COS
+########################################################
+variable "create_cos" {
+  description = "If true, create a new Standard Cloud Object Storage instance for the OpenShift registry"
+  type        = bool
+  default     = false
+}
+
+variable "cos_name" {
+  description = "Name for the new COS instance (ignored if create_cos = false)"
+  type        = string
+  default     = "roks-registry-cos"
+}
+
+variable "cos_resource_group_id" {
+  description = "Resource‑group ID for the COS instance (defaults to cluster RG)"
+  type        = string
+  default     = ""
+}
+
+# Still allow manual override
+variable "cos_instance_crn" {
+  description = "If provided, use this COS instance CRN instead of creating"
+  type        = string
+  default     = ""
+}
