@@ -47,6 +47,11 @@ variable "subnet_ids" {
   type        = map(string)
 }
 
+variable "cos_crn" {
+  description = "CRN of a *standard* Cloud Object Storage instance used by ROKS"
+  type        = string
+}
+
 variable "tags" {
   description = "Tags to apply to the cluster."
   type        = list(string)

@@ -38,6 +38,7 @@ resource "ibm_container_vpc_cluster" "this" {
   flavor            = var.worker_flavor
   worker_count      = var.workers_per_zone
   resource_group_id = local.resource_group_id
+  cos_instance_crn  = var.cos_crn
   tags              = var.tags
 
   dynamic "zones" {
